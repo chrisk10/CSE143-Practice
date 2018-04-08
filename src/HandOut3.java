@@ -12,24 +12,30 @@ public class HandOut3 {
 	}
 	
 	public void swtichPairs(List<String> list) {
-		for (int i = 0; i <list.size(); i = i + 2) {
+		for (int i = 1; i <list.size(); i = i + 2) { // This had to start from index of 1 because I was looking back
 			String temp = list.get(i - 1);
 			list.set(i-1, list.get(i));
 			list.set(i, temp);
 		}
 	}
 	
-	public void stutter(List<String> list) {
-		for (int i = 0; i < list.size(); i = i + 2) {
-			list.add(i, list.get(i));
+	public void stutter(List<Integer> testStutter) {
+		for (int i = 0; i < testStutter.size(); i = i + 2) {
+			testStutter.add(i, testStutter.get(i));
 		}
 	}
 	
-	public void reverse3(List<String> list) {
-		for (int i = 0; i < list.size(); i = i + 3) {
-			String temp = list.get(i);
-			list.set(i, list.get(i + 2));
-			list.set(i + 2, temp);
+	public void reverse3(List<Integer> list) {
+		for (int i = 0; i < list.size() - 2 ; i = i + 3) { /* This had to be list.size() - 2
+														  * if there was -2, in the second case, method would reach 99 and try to 
+														  * do list.get(i + 2) which is out of bound. Nonetheless, -3 would not work, because
+														  * the first case would not get to 204 and would ont perform the reversing actions.
+														  * It is a good problem to come back to.
+														  */
+			int n1 = list.get(i);
+			int n3 = list.get(i + 2);
+			list.set(i, n3);
+			list.set(i + 2, n1);
 		}
 	}
 	
