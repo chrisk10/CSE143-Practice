@@ -46,6 +46,10 @@ public class HandOut1n2 {
 	public void stutter() {
 		for (int i = size - 1; i >= 0; i--) {
 			elementData[i * 2 + 1] = elementData[i];
+			elementData[i * 2] = elementData[i];		/* This line was needed to fix the problem where
+													 * there were 0s and did not have numbers from the
+													 * elementData array.
+													 */ 
 		}
 		size = size * 2;
 	}
@@ -89,8 +93,20 @@ public class HandOut1n2 {
 		return size;
 	}
 	
-	/*public ArrayIntList fromCounts(ArrayIntList other) {
-		ArrayIntList
+	public HandOut1n2 fromCounts() {/* look at this problem again for multiple reasons
+									 * I first did not know I should have used nested loop
+									 * I forgot I should update size
+									 * I forgot I could access private field
+									 */
+		HandOut1n2 ret = new HandOut1n2();
 		int index = 0;
-	}*/
+		for (int i = 1; i < size; i = i + 2) {
+			for (int j = 0; j < elementData[i - 1]; j++) {
+				ret.elementData[index] = elementData[i];
+				index++;
+			}
+		}
+		ret.size = index;			// had to fix this. always don't forget to update size
+		return ret;
+	}
 }
