@@ -15,6 +15,7 @@ public class HandOut1n2Test {
 		boolean testIsPairwiseSorted = false;
 		String testMirror = "[1, 5, 5, 1]";
 		String testFromCounts = "[5, 1, 1, 1, 1, 1]";
+		String testRunnigTotal = "[5, 6, 7, 8, 9, 10]";
 		
 		if (test.indexOf(3) == testIndexOf) {
 			System.out.println("IndexOf passed");
@@ -53,6 +54,10 @@ public class HandOut1n2Test {
 		test = test.fromCounts();
 		if (test.toString().equals(testFromCounts)) {
 			System.out.println("FromCounts passed");
+		}
+		test = test.runningTotal();
+		if (test.toString().endsWith(testRunnigTotal)) {
+			System.out.println("RunningTotal passed");
 		}
 	}
 }

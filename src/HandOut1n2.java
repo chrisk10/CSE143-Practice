@@ -109,4 +109,18 @@ public class HandOut1n2 {
 		ret.size = index;			// had to fix this. always don't forget to update size
 		return ret;
 	}
+	
+	public HandOut1n2 runningTotal() {
+		HandOut1n2 ret = new HandOut1n2();
+		for (int i = 0; i < size; i++) {
+			int sum = 0;
+			int index = i;
+			while (index >= 0) {
+				sum += elementData[index];
+				index--;
+			}
+			ret.add(sum);
+		}
+		return ret;
+	}
 }
